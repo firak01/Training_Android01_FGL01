@@ -5,17 +5,30 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
-        android:targetSdkVersion="18" />
+        android:minSdkVersion="16"
+        android:targetSdkVersion="23" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        >
+        <!-- FGL: 
+        Es war notwendig android:theme hinzuzufügen auf Activity Ebene
+        wenn man das auf Application Ebene entfernt.
+        
+        If your Java is using ActionBarActivity the theme must extend Theme.AppCompat. 
+        There are a handful of built in themes that do extend Theme.AppCompat or you could extend it yourself and modify it. 
+        Without removing the ActionBarActivity parent you cannot get around using the Theme.AppCompat.
+
+		Lösung:
+		In styles.xml verwende DarkActionBar
+		<style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">		
+         -->
         <activity
             android:name="de.fgl.tryout.android.training001.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name" 
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,6 +38,7 @@
         <activity
             android:name="de.fgl.tryout.android.training001.DisplayMessageActivity"
             android:label="@string/title_activity_display_message"
+            android:theme="@style/AppTheme"
             android:parentActivityName="de.fgl.tryout.android.training001.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
