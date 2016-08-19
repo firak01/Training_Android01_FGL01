@@ -57,12 +57,13 @@ public class MainActivity extends ActionBarActivity {
 		//FGL: Versuch etwas in LogCat auszugeben. Dazu muss der Emulator/das Gerät verbunden sein.
 		//     Merke: Hatte man ggfs. mehrere Emulatoren am Laufen, kann es sein, dass man alle beenden muss
 		//            und Eclipse neu starten muss.
-		Log.d("a", "FGLTEST");
+		Log.d("FGLTEST", "Methode sendMessage(..) start");
 		
 	    //Start an intent
 		Intent intent = new Intent(this, DisplayMessageActivity.class);
 		EditText editText = (EditText) findViewById(R.id.edit_message);
 		String message = editText.getText().toString();
+		Log.d("FGLTEST", "Methode sendMessage(..) message="+message);
 		intent.putExtra(EXTRA_MESSAGE, message);
 		startActivity(intent);
 	}
